@@ -1,129 +1,177 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portofolio - Dimitri Dinar</title>
-<link rel="stylesheet" href="style.css">
-<style>
-  .buttons {
-    display: flex;
-    gap: 10px; /* jarak antar tombol */
-    margin-top: 15px;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio - Dimitri Dinar</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  /* gaya tombol musik */
-  #playMusic {
-    background: #444;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
+  <style>
+    /* Container tombol musik */
+    .music-control {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: #f5f5f5;
+      padding: 12px 18px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-  #playMusic.playing {
-    background: #28a745; /* hijau saat play */
-  }
+    /* Tombol musik */
+    .btn-music {
+      background: linear-gradient(135deg, #4a4aff, #6a6aff);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
 
-  #playMusic.paused {
-    background: #dc3545; /* merah saat pause */
-  }
-</style>
+    .btn-music:hover {
+      background: linear-gradient(135deg, #6a6aff, #4a4aff);
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(74,74,255,0.4);
+    }
+
+    /* Slider volume */
+    #volume {
+      width: 130px;
+      cursor: pointer;
+      accent-color: #4a4aff;
+    }
+  </style>
 </head>
 <body>
-<!-- HEADER -->
-<header class="navbar">
-<div class="container">
-<div class="brand">
-<img src="gambar1.png" alt="Foto Profil" class="avatar">
-<div>
-<h1>Dimitri Dinar</h1>
-<p>Pelajar</p>
-</div>
-</div>
-<nav>
-<a href="#about">About</a>
-<a href="#work">Work</a>
-<a href="#contact">Contact</a>
-<a href="#" class="btn">Download CV</a>
-</nav>
-</div>
-</header>
+  <!-- HEADER -->
+  <header class="navbar">
+    <div class="container">
+      <div class="brand">
+        <img src="gambar1.png" alt="Foto Profil" class="avatar">
+        <div>
+          <h1>Dimitri Dinar</h1>
+          <p>Pelajar</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="https://wa.me/6281225399332" target="_blank" class="icon-link">
+          <i class="fab fa-whatsapp"></i> Whatsapp
+        </a>
+        <a href="https://discord.gg/your-invite-link" target="_blank" class="icon-link">
+          <i class="fab fa-discord"></i> Discord
+        </a>
+        <a href="#work">Work</a>
+        <a href="https://github.com/oogtaunama/Dimitri-Dinar-Web.git">GitHub</a>
+        <a href="https://raw.githubusercontent.com/oogtaunama/Dimitri-Dinar-Web/main/CV_Dimitri_Dinar.pdf" class="btn">Download CV</a>
+      </nav>
+    </div>
+  </header>
 
+  <main>
+    <!-- HERO -->
+    <section class="hero container" id="hero">
+      <div class="hero-text">
+        <h2>Halo, saya <span class="highlight">Dimitri Dinar</span></h2>
+        <p>Saya Pelajar di SMK Negeri 4 Klaten</p>
+        <div class="buttons">
+          <a href="#work" class="btn primary">Lihat Portofolio</a>
+          <a href="https://github.com/oogtaunama/Dimitri-Dinar-Web.git" class="btn">Hubungi Saya</a>
+          <button id="playMusic" class="btn-music">🎵 Play Music</button>
+          <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="baner.gif" alt="Foto Hero">
+      </div>
+    </section>
 
-<main>
-<!-- HERO -->
-<section class="hero container" id="hero">
-<div class="hero-text">
-<h2>Halo, saya <span class="highlight">Dimitri Dinar</span></h2>
-<p>Saya Pelajar Di sekolah Smk Negeri 4 Klaten</p>
-<div class="buttons">
-<a href="#work" class="btn primary">Lihat Portofolio</a>
-<a href="#contact" class="btn">Hubungi Saya</a>
-<button id="playMusic" class="btn">🎵 Play Music</button>
-</div>
-</div>
-<div class="hero-img">
-<img src="baner.gif" alt="Foto Hero">
-</div>
-</section>
+    <!-- ABOUT -->
+    <section class="about container" id="about">
+      <h3>👤 Sedikit Tentang Saya</h3>
+      <p>
+        Saya fokus pada <strong>Developer server</strong>, terutama 
+        <strong>server Minecraft</strong>.
+      </p>
+      <ul class="skills-list">
+        <li>🎮 Minecraft Development</li>
+        <li>🌐 Minecraft Server Development</li>
+      </ul>
+    </section>
 
+    <!-- WORK -->
+    <section class="work container" id="work">
+      <h3>Portofolio Terpilih</h3>
+      <div class="grid">
+        <div class="card">
+          <img src="proyekmc.jpg" alt="Proyek">
+          <h4>Project 1</h4>
+        </div>
+        <div class="card">
+          <img src="proyekmc2.jpg" alt="Proyek">
+          <h4>Project 2</h4>
+        </div>
+        <div class="card">
+          <img src="proyekmc3.jpg" alt="Proyek">
+          <h4>Project 3</h4>
+        </div>
+      </div>
+    </section>
 
-<!-- ABOUT -->
-<section class="about container" id="about">
-<h3>Sedikit Tentang Saya</h3>
-<p>Saya fokus pada Devoloper server terutama server minecraft.</p>
-<ul>
-<li>Minecraft Development</li>
-<li>Maincraft Server Development</li>
-</ul>
-</section>
+    <!-- Audio -->
+    <audio id="ad1" src="ad1.mp3" loop></audio>
+  </main>
 
+  <!-- Tombol Toggle Dark Mode -->
+  <button id="darkModeToggle" class="dark-toggle">🌙</button>
 
-<!-- WORK -->
-<section class="work container" id="work">
-<h3>Portofolio Terpilih</h3>
-<div class="grid">
-<div class="card"><img src="proyekmc.jpg" alt="Proyek"><h4>Project 1</h4></div>
-<div class="card"><img src="proyekmc2.jpg" alt="Proyek"><h4>Project 2</h4></div>
-<div class="card"><img src="proyekmc3.jpg" alt="Proyek"><h4>Project 3</h4></div>
-</div>
-</section>
+  <!-- Script Musik -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const audio = document.getElementById("ad1");
+      const btn = document.getElementById("playMusic");
+      const volumeSlider = document.getElementById("volume");
 
-<!-- CONTACT -->
-<section class="contact container" id="contact">
-<h3>Kontak</h3>
-<li>https://github.com/oogtaunama/web-portofolio.git</li>
-</section>
+      let isPlaying = false;
 
-<!-- AUDIO BACKGROUND -->
-<audio id="ad1" src="ad1.mp3" loop></audio>
-
-<script>
-  const audio = document.getElementById("ad1");
-  const btn = document.getElementById("playMusic");
-
-  let isPlaying = false;
-
-  btn.addEventListener("click", () => {
-    if (!isPlaying) {
-      audio.load();
-      audio.play().then(() => {
-        btn.textContent = "⏸ Pause Music";
-        btn.classList.remove("paused");
-        btn.classList.add("playing");
-      }).catch(err => {
-        console.log("Gagal memutar audio:", err);
+      // Play / Pause
+      btn.addEventListener("click", () => {
+        if (!isPlaying) {
+          audio.play().then(() => {
+            btn.textContent = "⏸ Pause Music";
+          }).catch(err => console.log("Error play:", err));
+        } else {
+          audio.pause();
+          btn.textContent = "🎵 Play Music";
+        }
+        isPlaying = !isPlaying;
       });
+
+      // Volume Control
+      volumeSlider.addEventListener("input", () => {
+        audio.volume = volumeSlider.value;
+      });
+    });
+  </script>
+  
+<script>
+  const toggleBtn = document.getElementById("darkModeToggle");
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+      toggleBtn.textContent = "🌙"; // ikon malam
     } else {
-      audio.pause();
-      btn.textContent = "🎵 Play Music";
-      btn.classList.remove("playing");
-      btn.classList.add("paused");
+      toggleBtn.textContent = "☀️"; // ikon matahari
     }
-    isPlaying = !isPlaying;
   });
 </script>
 
