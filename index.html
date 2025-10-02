@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio - Dimitri Dinar</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .buttons {
+    display: flex;
+    gap: 10px; /* jarak antar tombol */
+    margin-top: 15px;
+  }
+
+  /* gaya tombol musik */
+  #playMusic {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  #playMusic.playing {
+    background: #28a745; /* hijau saat play */
+  }
+
+  #playMusic.paused {
+    background: #dc3545; /* merah saat pause */
+  }
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="navbar">
+<div class="container">
+<div class="brand">
+<img src="gambar1.png" alt="Foto Profil" class="avatar">
+<div>
+<h1>Dimitri Dinar</h1>
+<p>Pelajar</p>
+</div>
+</div>
+<nav>
+<a href="#about">About</a>
+<a href="#work">Work</a>
+<a href="#contact">Contact</a>
+<a href="#" class="btn">Download CV</a>
+</nav>
+</div>
+</header>
+
+
+<main>
+<!-- HERO -->
+<section class="hero container" id="hero">
+<div class="hero-text">
+<h2>Halo, saya <span class="highlight">Dimitri Dinar</span></h2>
+<p>Saya Pelajar Di sekolah Smk Negeri 4 Klaten</p>
+<div class="buttons">
+<a href="#work" class="btn primary">Lihat Portofolio</a>
+<a href="#contact" class="btn">Hubungi Saya</a>
+<button id="playMusic" class="btn">🎵 Play Music</button>
+</div>
+</div>
+<div class="hero-img">
+<img src="baner.gif" alt="Foto Hero">
+</div>
+</section>
+
+
+<!-- ABOUT -->
+<section class="about container" id="about">
+<h3>Sedikit Tentang Saya</h3>
+<p>Saya fokus pada Devoloper server terutama server minecraft.</p>
+<ul>
+<li>Minecraft Development</li>
+<li>Maincraft Server Development</li>
+</ul>
+</section>
+
+
+<!-- WORK -->
+<section class="work container" id="work">
+<h3>Portofolio Terpilih</h3>
+<div class="grid">
+<div class="card"><img src="proyekmc.jpg" alt="Proyek"><h4>Project 1</h4></div>
+<div class="card"><img src="proyekmc2.jpg" alt="Proyek"><h4>Project 2</h4></div>
+<div class="card"><img src="proyekmc3.jpg" alt="Proyek"><h4>Project 3</h4></div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact container" id="contact">
+<h3>Kontak</h3>
+<li>https://github.com/oogtaunama/web-portofolio.git</li>
+</section>
+
+<!-- AUDIO BACKGROUND -->
+<audio id="ad1" src="ad1.mp3" loop></audio>
+
+<script>
+  const audio = document.getElementById("ad1");
+  const btn = document.getElementById("playMusic");
+
+  let isPlaying = false;
+
+  btn.addEventListener("click", () => {
+    if (!isPlaying) {
+      audio.load();
+      audio.play().then(() => {
+        btn.textContent = "⏸ Pause Music";
+        btn.classList.remove("paused");
+        btn.classList.add("playing");
+      }).catch(err => {
+        console.log("Gagal memutar audio:", err);
+      });
+    } else {
+      audio.pause();
+      btn.textContent = "🎵 Play Music";
+      btn.classList.remove("playing");
+      btn.classList.add("paused");
+    }
+    isPlaying = !isPlaying;
+  });
+</script>
+
+</body>
+</html>
